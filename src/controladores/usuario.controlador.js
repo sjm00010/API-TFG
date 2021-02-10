@@ -1,22 +1,16 @@
-const db = require("../modelos");
+import db from "../modelos/index.js"
+
 const Usuario = db.usuario;
 
-// Create and Save a new Tutorial
-exports.create = (req, res) => {
+// POST : Crea un nuevo Profesor autorizado
+export const crear = (req, res) => {
 
-    // Validate request
-    if (!req.body.usuario || !req.body.pass) {
-        res.status(400).send({ message: "Se deben pasar datos válidos" });
-        return;
-    }
-
-   // Create a Tutorial
+   // Crea el Profesor
     const usuario = new Usuario({
-        usuario: req.body.usuario,
-        pass: req.body.pass
+        ...req.body
     });
 
-    // Save Tutorial in the database
+    // Guarda el Profesor en la base de datos
     usuario
         .save(usuario)
         .then(data => {
@@ -24,14 +18,13 @@ exports.create = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-            message:
-                err.message || "Algun error ha occurrido mientras se creaba el usuario."
+            message: err.message || "ERROR: Se ha producido algun error mientras se creaba el usuario."
         });
     });
 };
 
-// Retrieve all Tutorials from the database.
-exports.login = (req, res) => {
+// GET : Login de un Profesor, Autenticación
+export const login = (req, res) => {
     const {usuario, pass} = req.body;
 
     Usuario.find({usuario, pass})
@@ -43,33 +36,7 @@ exports.login = (req, res) => {
         })
         .catch(err => {
         res.status(500).send({
-            message:
-            err.message || "Some error occurred while retrieving tutorials."
+            message: "ERROR: Se ha producido algun error mientras se obtenian los datos de usuario."
         });
     });
-};
-
-// Find a single Tutorial with an id
-exports.findOne = (req, res) => {
-  
-};
-
-// Update a Tutorial by the id in the request
-exports.update = (req, res) => {
-  
-};
-
-// Delete a Tutorial with the specified id in the request
-exports.delete = (req, res) => {
-  
-};
-
-// Delete all Tutorials from the database.
-exports.deleteAll = (req, res) => {
-  
-};
-
-// Find all published Tutorials
-exports.findAllPublished = (req, res) => {
-  
 };

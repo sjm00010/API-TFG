@@ -1,11 +1,14 @@
-const dbConfig = require("../config/db.config.js");
+import mongoose from "mongoose";
+import dbConfig from "../config/db.config.js";
+import usuario from "./usuario.modelo.js";
+import ejViga from "./ejViga.modelo.js";
 
-const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
-db.usuario = require("./usuario.modelo.js")(mongoose);
+db.usuario = usuario(mongoose);
+db.ejViga = ejViga(mongoose);
 
-module.exports = db;
+export default db;
