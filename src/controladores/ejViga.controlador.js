@@ -14,7 +14,7 @@ export const crear = (req, res) => {
     viga
         .save(viga)
         .then(data => {
-            res.send(data);
+            res.status(201).send(data.id);
         })
         .catch(err => {
             res.status(400).send({

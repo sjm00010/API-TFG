@@ -17,14 +17,22 @@ export const Tramo = mongoose.Schema(
   }
 );
 
+export const Formula = mongoose.Schema(
+  {
+    axiles: {type: String, required: true},
+    cortantes: {type: String, required: true},
+    flectores: {type: String, required: true}
+  }
+);
+
 export const Elemento = mongoose.Schema(
   {
     tipo: {type: String, required: true}, // Tipo de elemento
-    segmento: {type: Number, required: true}, // Indice tramo inicio
+    segmento: Number, // Indice tramo inicio
     segmentoFinal: Number, // Indice tramo fin (Opcional)
-    magnitud: {type: Number, required: true}, // Magnitud del elemento por defecto
-    min: {type: Number, required: true}, // Valor mínimo de la magnitud
-    max: {type: Number, required: true}, // Valor máximo de la magnitud
+    magnitud: {type: String, required: true}, // Magnitud del elemento por defecto
+    min: Number, // Valor mínimo de la magnitud (Opcional)
+    max: Number, // Valor máximo de la magnitud (Opcional)
     idBarra: Number, // Nombre de la barra (Opcional)
     d: Number, // Magnitud d para la barra (Opcional)
     minD: Number, // Mínimo para d de la barra (Opcional)

@@ -1,4 +1,4 @@
-import { EjercicioSchema, Tramo, Elemento } from "./esquemas_aux.js";
+import { EjercicioSchema, Tramo, Elemento, Formula } from "./esquemas_aux.js";
 
 export default mongoose => {
     const schema = mongoose.Schema(
@@ -6,7 +6,7 @@ export default mongoose => {
             ...EjercicioSchema.obj,
             tramos: [Tramo],
             elementos: [Elemento],
-            formulas: [String]
+            formulas: [Formula]
         }
     );
   

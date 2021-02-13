@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { crear, login } from "../controladores/usuario.controlador.js";
+import { crear, login, verificarAuth } from "../controladores/usuario.controlador.js";
 
 export default app => {
     const router = Router();
@@ -8,7 +8,7 @@ export default app => {
     router.post("/", crear);
   
     // Login de un Profesor, Autenticación
-    router.get("/login", login);
+    router.post("/login", verificarAuth, login);
   
     app.use('/api/usuario', router);
 };

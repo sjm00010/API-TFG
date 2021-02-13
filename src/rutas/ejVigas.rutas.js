@@ -1,22 +1,23 @@
 import { Router } from "express";
 import { crear, actualizar, borrar, buscar1, buscarTodos } from "../controladores/ejViga.controlador.js";
+import { verificarAuth } from "../controladores/usuario.controlador.js";
 
 export default app => {
     const router = Router();
   
     // Crea un nuevo Ejercicio de tipo Viga
-    router.post("/", crear);
+    router.post("/", verificarAuth, crear);
 
     // Actualizar un Ejercicio de tipo Viga
-    router.put("/:id", actualizar);
+    router.put("/:id", verificarAuth, actualizar);
 
     // Borrar un Ejercicio de tipo Viga
-    router.delete("/:id", borrar);
+    router.delete("/:id", verificarAuth, borrar);
   
-    // Login de un Profesor, Autenticación
+    // Obtiene un ejercicio
     router.get("/:id", buscar1);
 
-    // Login de un Profesor, Autenticación
+    // Obtiene los datos básicos de todos los ejercicios
     router.get("/", buscarTodos);
   
     app.use('/api/ejViga', router);

@@ -13,8 +13,8 @@ export const crear = (req, res) => {
     // Guarda el Profesor en la base de datos
     usuario
         .save(usuario)
-        .then(data => {
-            res.send(data);
+        .then(() => {
+            res.status(201);
         })
         .catch(err => {
             res.status(500).send({
@@ -25,11 +25,15 @@ export const crear = (req, res) => {
 
 // GET : Login de un Profesor, Autenticación
 export const login = (req, res) => {
+    res.status(200).send();
+};
+
+export const verificarAuth = (req, res, next) => {
     const {usuario, pass} = req.body;
 
     Usuario.find({usuario, pass})
         .then(data => {
-            if(data.length) res.status(200).send();
+            if(data.length) next();
             else res.status(400).send({
                 message: "Usuario o contraseña incorrectos."
             });
