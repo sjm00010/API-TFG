@@ -4,8 +4,8 @@ export const EjercicioSchema = mongoose.Schema(
   {
     dificultad: {type: Number, default: 1, min: 1, max:3, required: true},
     enunciado: {type: String, required: true},
-    ayuda: {type: String, required: true},
-    video: {type: String, required: true}
+    ayuda: String,
+    video: String
   }
 );
 
@@ -33,7 +33,7 @@ export const Elemento = mongoose.Schema(
     magnitud: {type: String, required: true}, // Magnitud del elemento por defecto
     min: Number, // Valor mínimo de la magnitud (Opcional)
     max: Number, // Valor máximo de la magnitud (Opcional)
-    idBarra: Number, // Nombre de la barra (Opcional)
+    nombre: {type: String, required: true}, // Nombre (ID)
     d: Number, // Magnitud d para la barra (Opcional)
     minD: Number, // Mínimo para d de la barra (Opcional)
     maxD: Number, // Máximo para d de la barra (Opcional)

@@ -17,6 +17,7 @@ export const crear = (req, res) => {
             res.status(201).send(data.id);
         })
         .catch(err => {
+            console.log(err)
             res.status(400).send({
             message: "ERROR: Se ha producido algun error mientras se creaba el ejercicio."
         });

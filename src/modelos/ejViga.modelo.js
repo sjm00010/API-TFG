@@ -6,7 +6,8 @@ export default mongoose => {
             ...EjercicioSchema.obj,
             tramos: [Tramo],
             elementos: [Elemento],
-            formulas: [Formula]
+            formulas: [Formula],
+            auxiliares: [String]
         }
     );
   
