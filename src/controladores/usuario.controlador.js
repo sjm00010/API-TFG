@@ -17,7 +17,7 @@ export const crear = (req, res) => {
     usuario
         .save(usuario)
         .then(() => {
-            res.status(201);
+            res.status(201).send();
         })
         .catch(err => {
             res.status(500).send({

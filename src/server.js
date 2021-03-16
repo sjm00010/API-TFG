@@ -24,7 +24,7 @@ db.mongoose
   });
 
 const corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://lachimba.ujaen.es"
 };
 
 app.use(cors());//corsOptions));
@@ -33,7 +33,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Ruta simple, para saber si el API esta activa
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.json({ message: "Bienvenido a la API." });
 });
 

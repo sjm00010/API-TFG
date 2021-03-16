@@ -8,7 +8,7 @@ export default app => {
     router.post("/", crear);
   
     // Login de un Profesor, Autenticación
-    router.post("/login", verificarAuth, login);
+    router.get("/login", verificarAuth, login);
   
     app.use('/api/usuario', router);
 };
