@@ -5,6 +5,7 @@ import cors from "cors";
 import db from "./modelos/index.js";
 import usuarioRutas from "./rutas/usuario.rutas.js";
 import vigaRutas from "./rutas/ejVigas.rutas.js";
+import mohrRutas from "./rutas/ejMohr.rutas.js";
 
 const app = express();
 db.mongoose
@@ -24,13 +25,10 @@ db.mongoose
   });
 
 const corsOptions = {
-  origin: "http://lachimba.ujaen.es"
+  origin: "https://wipace.ujaen.es"
 };
 
-app.use(cors());//corsOptions));
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors(corsOptions));
 
 // Ruta simple, para saber si el API esta activa
 app.get("/api", (req, res) => {
@@ -40,9 +38,10 @@ app.get("/api", (req, res) => {
 // Importo las funciones del API
 usuarioRutas(app);
 vigaRutas(app);
+mohrRutas(app);
 
 // Establece el puerto de escucha del API
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
   console.log(`La API esta ejecutandose en http://localhost:${PORT}`);
 });
