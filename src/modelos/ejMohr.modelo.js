@@ -4,15 +4,15 @@ export default mongoose => {
     const schema = mongoose.Schema(
         {
             ...EjercicioSchema.obj,
-            sx = Number,
-            sy = Number,
-            txy = Number,
-            s1 = Number,
-            s2 = Number,
-            a = Number,
-            B = {type: Number, required: true},
-            E = {type: Number, required: true},
-            v = {type: Number, required: true},
+            sx: Number,
+            sy: Number,
+            txy: Number,
+            s1: Number,
+            s2: Number,
+            a: Number,
+            B: {type: Number, required: true},
+            E: {type: Number, required: true},
+            v: {type: Number, required: true},
         }
     );
   
