@@ -7,7 +7,9 @@ export default mongoose => {
             tramos: [Tramo],
             elementos: [Elemento],
             formulas: [Formula],
-            auxiliares: [String]
+            auxiliares: [String],
+            E: Number,
+            I: Number
         }
     );
   

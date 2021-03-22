@@ -21,7 +21,8 @@ export const Formula = mongoose.Schema(
   {
     axiles: {type: String, required: true},
     cortantes: {type: String, required: true},
-    flectores: {type: String, required: true}
+    flectores: {type: String, required: true},
+    deformada: String
   }
 );
 
