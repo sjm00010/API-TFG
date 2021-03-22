@@ -27,7 +27,7 @@ const corsOptions = {
   origin: "https://wipace.ujaen.es"
 };
 
-app.use(cors(corsOptions));
+app.use(cors()); //corsOptions)); // Cambiar para produccion
 app.use(express.json());
 
 // Ruta simple, para saber si el API esta activa
