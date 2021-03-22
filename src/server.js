@@ -1,5 +1,4 @@
 import express from "express";
-import bodyParser from "body-parser";
 import cors from "cors";
 
 import db from "./modelos/index.js";
@@ -29,6 +28,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(express.json());
 
 // Ruta simple, para saber si el API esta activa
 app.get("/api", (req, res) => {
