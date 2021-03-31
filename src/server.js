@@ -3,8 +3,7 @@ import cors from "cors";
 
 import db from "./modelos/index.js";
 import usuarioRutas from "./rutas/usuario.rutas.js";
-import vigaRutas from "./rutas/ejVigas.rutas.js";
-import mohrRutas from "./rutas/ejMohr.rutas.js";
+import ejerciciosRutas from "./rutas/ejercicios.rutas.js";
 
 const app = express();
 db.mongoose
@@ -37,8 +36,7 @@ app.get("/api", (req, res) => {
 
 // Importo las funciones del API
 usuarioRutas(app);
-vigaRutas(app);
-mohrRutas(app);
+ejerciciosRutas(app);
 
 // Establece el puerto de escucha del API
 const PORT = process.env.PORT || 8081;

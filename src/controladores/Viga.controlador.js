@@ -1,18 +1,18 @@
 import db from "../modelos/index.js"
 
-const EjMohr = db.ejMohr;
+const EjViga = db.Viga;
 
-// POST : Crea un nuevo ejercicio
+// POST : Crea un nuevo Ejercicio de tipo Viga
 export const crear = (req, res) => {
 
     // Crea el ejercicio
-    const mohr = new EjMohr({
+    const viga = new EjViga({
         ...req.body
     });
 
     // Guarda el ejercicio
-    mohr
-        .save(mohr)
+    viga
+        .save(viga)
         .then(data => {
             res.status(201).send(data.id);
         })
@@ -34,13 +34,13 @@ export const actualizar = (req, res) => {
     
     const id = req.params.id;
     
-    EjMohr.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    EjViga.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
         .then(data => {
             if (!data) {
             res.status(404).send({
-                message: `ERROR: No se pudo actualizar el ejercicio de Mohr con id=${id}. Puede que no se haya encontrado el ejercicio.`
+                message: `ERROR: No se pudo actualizar el ejercicio de vigas con id=${id}. Puede que no se haya encontrado el ejercicio.`
             });
-            } else res.send({ message: "Ejercicio de Mohr ha sido actualizado" });
+            } else res.send({ message: "Ejercicio de vigas ha sido actualizado" });
         })
         .catch(err => {
             res.status(500).send({
@@ -53,14 +53,14 @@ export const actualizar = (req, res) => {
 export const borrar = (req, res) => {
     const id = req.params.id;
 
-    EjMohr.findByIdAndRemove(id)
+    EjViga.findByIdAndRemove(id)
         .then(data => {
             if (!data) {
                 res.status(404).send({
-                message: `ERROR: No se pudo borrar el ejercicio de Mohr con id=${id}. Puede que no se haya encontrado el ejercicio.`
+                message: `ERROR: No se pudo borrar el ejercicio de vigas con id=${id}. Puede que no se haya encontrado el ejercicio.`
                 });
             } else {
-                res.send({ message: "Ejercicio de Mohr ha sido borrado" });
+                res.send({ message: "Ejercicio de vigas ha sido borrado" });
             }
         })
         .catch(err => {
@@ -74,7 +74,7 @@ export const borrar = (req, res) => {
 export const buscar1 = (req, res) => {
     const id = req.params.id;
 
-    EjMohr.findById(id)
+    EjViga.findById(id)
         .then(data => {
             if (!data)
             res.status(404).send({ message: "No se encontrar el ejercicio con id " + id });
@@ -89,13 +89,13 @@ export const buscar1 = (req, res) => {
 
 // GET : Obtiene todos los datos básicos de los ejercicios
 export const buscarTodos = (req, res) => {  
-    EjMohr.find({}, {dificultad: 1, enunciado: 1, id: 1})
+    EjViga.find({}, {dificultad: 1, enunciado: 1, id: 1})
         .then(data => {
             res.send(data);
         })
         .catch(err => {
             res.status(500).send({
-            message: "ERROR: Ocurrio un error mientras se recuperaban los ejercicios de Mohr"
+            message: "ERROR: Ocurrio un error mientras se recuperaban los ejercicios de vigas"
         });
     });
 };

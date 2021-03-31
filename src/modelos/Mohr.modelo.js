@@ -22,7 +22,7 @@ export default mongoose => {
         return object;
     });
   
-    const EjViga = mongoose.model("ejercicios_Mohr", schema);
+    const EjMohr = mongoose.model("ejercicios_Mohr", schema);
   
-    return EjViga;
+    return EjMohr;
   };

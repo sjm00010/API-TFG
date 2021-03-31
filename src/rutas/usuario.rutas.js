@@ -4,10 +4,10 @@ import { crear, login, verificarAuth } from "../controladores/usuario.controlado
 export default app => {
     const router = Router();
   
-    // Crea un nuevo Profesor autorizado
+    // Crea un nuevo Profesor autorizado (BORRAR)
     router.post("/", crear);
   
-    // Login de un Profesor, Autenticación
+    // Autenticación de un profesor
     router.get("/login", verificarAuth, login);
   
     app.use('/api/usuario', router);
