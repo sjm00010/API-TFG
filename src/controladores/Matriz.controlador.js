@@ -40,7 +40,7 @@ export const actualizar = (req, res) => {
             res.status(404).send({
                 message: `ERROR: No se pudo actualizar el ejercicio matricial con id=${id}. Puede que no se haya encontrado el ejercicio.`
             });
-            } else res.send({ message: "Ejercicio matricial ha sido actualizado" });
+            } else res.status(200).send();
         })
         .catch(err => {
             res.status(500).send({
@@ -59,9 +59,7 @@ export const borrar = (req, res) => {
                 res.status(404).send({
                 message: `ERROR: No se pudo borrar el ejercicio matricial con id=${id}. Puede que no se haya encontrado el ejercicio.`
                 });
-            } else {
-                res.send({ message: "Ejercicio matricial ha sido borrado" });
-            }
+            } else res.status(200).send();
         })
         .catch(err => {
             res.status(500).send({
