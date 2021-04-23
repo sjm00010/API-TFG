@@ -1,5 +1,6 @@
 import { EjercicioSchema } from "./esquemas_aux.js";
 
+// Esquema para un ejercicio de círculos de Mohr
 export default mongoose => {
     const schema = mongoose.Schema(
         {

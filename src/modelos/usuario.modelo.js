@@ -1,3 +1,4 @@
+// Esquema de un docente
 export default mongoose => {
   const schema = mongoose.Schema(
     {

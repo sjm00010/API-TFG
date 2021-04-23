@@ -2,15 +2,16 @@ import db from "../modelos/index.js"
 
 const EjMatriz = db.Matriz;
 
-// POST : Crea un nuevo ejercicio
+/**
+ * POST : Creación de un nuevo ejercicio matricial
+ * @param {*} req Petición
+ * @param {*} res Respuesta
+ */
 export const crear = (req, res) => {
-
-    // Crea el ejercicio
     const matriz = new EjMatriz({
         ...req.body
     });
 
-    // Guarda el ejercicio
     matriz
         .save(matriz)
         .then(data => {
@@ -24,7 +25,11 @@ export const crear = (req, res) => {
     });
 };
 
-// PUT : Actualiza un ejercicio
+/**
+ * PUT : Actualización de un ejercicio matricial
+ * @param {*} req Petición
+ * @param {*} res Respuesta
+ */
 export const actualizar = (req, res) => {
     if (!req.body) {
         return res.status(400).send({
@@ -49,7 +54,11 @@ export const actualizar = (req, res) => {
     });
 };
 
-// DELETE : Borra un ejercicio
+/**
+ * DELETE : Borrado de un ejercicio matricial
+ * @param {*} req Petición
+ * @param {*} res Respuesta
+ */
 export const borrar = (req, res) => {
     const id = req.params.id;
 
@@ -68,7 +77,11 @@ export const borrar = (req, res) => {
     });
 };
 
-// GET : Obtiene un ejercicio
+/**
+ * GET : Obtención de un ejercicio matricial en base a un ID
+ * @param {*} req Petición
+ * @param {*} res Respuesta
+ */
 export const buscar1 = (req, res) => {
     const id = req.params.id;
 
@@ -85,7 +98,11 @@ export const buscar1 = (req, res) => {
     });
 };
 
-// GET : Obtiene todos los datos básicos de los ejercicios
+/**
+ * GET : Obtención de todos los datos básicos de los ejercicios matriciales
+ * @param {*} req Petición (NO SE UTILIZA)
+ * @param {*} res Respuesta
+ */
 export const buscarTodos = (req, res) => {  
     EjMatriz.find({}, {dificultad: 1, enunciado: 1, id: 1})
         .then(data => {

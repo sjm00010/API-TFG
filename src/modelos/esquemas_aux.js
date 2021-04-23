@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 
+/**
+ * Esquema general de un ejercicio, información básica para todos los tipos de ejercicio
+ */
 export const EjercicioSchema = mongoose.Schema(
   {
     dificultad: {type: Number, default: 1, min: 1, max:3, required: true},
@@ -9,6 +12,9 @@ export const EjercicioSchema = mongoose.Schema(
   }
 );
 
+/**
+ * Esquema del tramo de una viga
+ */
 export const Tramo = mongoose.Schema(
   {
     min: {type: Number, required: true},
@@ -17,6 +23,9 @@ export const Tramo = mongoose.Schema(
   }
 );
 
+/**
+ * Esquema de las distintas fórmulas del ejercicio de cálculo de apoyo en vigas
+ */
 export const Formula = mongoose.Schema(
   {
     axiles: {type: String, required: true},
@@ -26,6 +35,9 @@ export const Formula = mongoose.Schema(
   }
 );
 
+/**
+ * Esquema de los distintoos elementos del ejercicio de cálculo de apoyo en vigas
+ */
 export const Elemento = mongoose.Schema(
   {
     tipo: {type: String, required: true}, // Tipo de elemento
@@ -38,5 +50,6 @@ export const Elemento = mongoose.Schema(
     d: Number, // Magnitud d para la barra (Opcional)
     minD: Number, // Mínimo para d de la barra (Opcional)
     maxD: Number, // Máximo para d de la barra (Opcional)
+    orientacion: String // Orientación d de la barra (Opcional)
   }
 );

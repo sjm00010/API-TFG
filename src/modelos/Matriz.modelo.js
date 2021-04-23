@@ -1,9 +1,16 @@
 import { EjercicioSchema } from "./esquemas_aux.js";
 
+// Esquema para un ejercicio matricial
 export default mongoose => {
     const schema = mongoose.Schema(
         {
-            ...EjercicioSchema.obj
+            ...EjercicioSchema.obj,
+            materiales: [],
+            secciones: [],
+            nodos: [],
+            barras: [],
+            bc: [],
+            cargas: []
         }
     );
   

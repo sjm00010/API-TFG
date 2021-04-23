@@ -4,6 +4,7 @@ import * as viga from "../controladores/Viga.controlador.js";
 import * as matriz from "../controladores/Matriz.controlador.js";
 import * as mohr from "../controladores/Mohr.controlador.js";
 
+// Rutas del API para los ejercicios
 export default app => {
     const router = Router();
 

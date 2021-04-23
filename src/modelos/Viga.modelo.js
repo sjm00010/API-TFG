@@ -1,5 +1,6 @@
 import { EjercicioSchema, Tramo, Elemento, Formula } from "./esquemas_aux.js";
 
+// Esquema para un ejercicio de cálculo de apoyo en vigas
 export default mongoose => {
     const schema = mongoose.Schema(
         {
