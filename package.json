@@ -1,5 +1,5 @@
 {
-  "name": "API- WIPACE",
+  "name": "api-wipace",
   "version": "1.0.0",
   "description": "API Restful con operaciones CRUD, con Express y MongoDB",
   "main": "server.js",

@@ -1,9 +1,9 @@
 [ ![Seguidores](https://img.shields.io/github/followers/sjm00010?label=Seguir&style=social) ](https://github.com/sjm00010)
-![Estrellas](https://img.shields.io/github/stars/sjm00010/Practicas-DAE?label=Favoritos&style=flat-square)
+![Estrellas](https://img.shields.io/github/stars/sjm00010/API-TFG?label=Favoritos&style=flat-square)
 
 # API WIPACE
 
-Esta API JavaScript forma parte de la aplicación web [WIPACE]() como parte de la administración de los ejercicios. Esta API permite realizar las operaciones CRUD con los elementos de la BBDD.
+Esta API JavaScript forma parte de la aplicación web [WIPACE](https://github.com/sjm00010/TFG) como parte de la administración de los ejercicios. Esta API permite realizar las operaciones CRUD con los elementos de la BBDD.
 
 ## Operaciones
 La API se divide en dos partes claramente diferenciadas : *Identificación de usuarios* y *Gestión de ejercicios*. A continuación se detallaran las operaciones para cada una de las partes.
