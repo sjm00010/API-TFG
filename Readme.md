@@ -34,6 +34,22 @@ La API utiliza [Express](https://expressjs.com/es/) para la comunicación con la
 
 Además, es necesario tener instalada la BBDD [MongoDB](https://www.campusmvp.es/recursos/post/VIDEO-Instalacion-paso-a-paso-de-MongoDB-en-Windows-y-Linux.aspx), en este caso se utilizó [MongoDB Community Server](https://www.mongodb.com/try/download/community) en su versión 4.4.4. 
 
+### HTTPS
+Si no se desea utilizar HTTPS o no se disponen de los certificados pertinentes es necesario desactivar el CORS del archivo *serve.js*, sustituyendo:
+```
+const corsOptions = {
+  origin: "https://wipace.ujaen.es"
+};
+
+app.use(cors(corsOptions));
+```
+
+por
+
+```
+app.use(cors());
+```
+
 ### Instalación y configuración
 Una vez instalado todo lo necesario para el correcto funcionamiento de la API, se deben seguir los siguientes pasos por orden:
 
